@@ -3,7 +3,7 @@
 
     <groupId>toguru.jesusfc</groupId>
     <artifactId>spring-pet-clinic</artifactId>
-    <version>0.0.3</version>
+    <version>0.0.4-SNAPSHOT</version>
 
     <name>spring-pet-clinic</name>
     <description>Complete Spring Framework project</description>
@@ -51,7 +51,7 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/jesusfc/spring-pet-clinic.git</developerConnection>
-      <tag>spring-pet-clinic-0.0.3</tag>
+      <tag>HEAD</tag>
   </scm>
 
 </project>
