@@ -3,7 +3,7 @@ package toguru.jesusfc.springpetclinic.model;
 /**
  * Created By Jesús Fdez. Caraballo on 12/04/2021.
  */
-public class Person {
+public class Person extends BaseEntity {
 
     private String firstname;
     private String lastName;
