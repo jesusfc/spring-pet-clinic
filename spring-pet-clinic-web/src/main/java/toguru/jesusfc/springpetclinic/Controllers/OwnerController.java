@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 /**
  * Created By Jesús Fdez. Caraballo on 17/04/2021.
  */
+@RequestMapping("/owners")
 @Controller
 public class OwnerController {
 
-    @RequestMapping(value = {"/owner", "/ownerList"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"", "/", "/ownerList"}, method = RequestMethod.GET)
     public String goListVetsView(Model model) {
         return "owners/index";
     }
