@@ -1,6 +1,5 @@
 package toguru.jesusfc.springpetclinic.services;
 
-import toguru.jesusfc.springpetclinic.model.Owner;
 import toguru.jesusfc.springpetclinic.model.Pet;
 
 /**

@@ -2,13 +2,14 @@ package toguru.jesusfc.springpetclinic.services.map;
 
 import toguru.jesusfc.springpetclinic.model.Pet;
 import toguru.jesusfc.springpetclinic.services.CrudService;
+import toguru.jesusfc.springpetclinic.services.PetService;
 
 import java.util.Set;
 
 /**
  * Created By Jesús Fdez. Caraballo on 17/04/2021.
  */
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
     @Override
     public Set<Pet> findAll() {
