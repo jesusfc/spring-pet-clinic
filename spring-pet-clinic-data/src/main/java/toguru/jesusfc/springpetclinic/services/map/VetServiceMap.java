@@ -1,5 +1,6 @@
 package toguru.jesusfc.springpetclinic.services.map;
 
+import org.springframework.stereotype.Service;
 import toguru.jesusfc.springpetclinic.model.Vet;
 import toguru.jesusfc.springpetclinic.services.CrudService;
 import toguru.jesusfc.springpetclinic.services.VetService;
@@ -9,6 +10,7 @@ import java.util.Set;
 /**
  * Created By Jesús Fdez. Caraballo on 17/04/2021.
  */
+@Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
     @Override
     public Set<Vet> findAll() {
