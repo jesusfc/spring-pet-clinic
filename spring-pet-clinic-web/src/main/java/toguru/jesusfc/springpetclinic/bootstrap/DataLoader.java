@@ -6,8 +6,6 @@ import toguru.jesusfc.springpetclinic.model.Owner;
 import toguru.jesusfc.springpetclinic.model.Vet;
 import toguru.jesusfc.springpetclinic.services.OwnerService;
 import toguru.jesusfc.springpetclinic.services.VetService;
-import toguru.jesusfc.springpetclinic.services.map.OwnerServiceMap;
-import toguru.jesusfc.springpetclinic.services.map.VetServiceMap;
 
 /**
  * Created By Jesús Fdez. Caraballo on 2021.
@@ -18,9 +16,9 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
@@ -31,13 +29,13 @@ public class DataLoader implements CommandLineRunner {
         Owner owner1 = new Owner();
         owner1.setId(1L);
         owner1.setFirstname("Jesús");
-        owner1.setFirstname("Fdez");
+        owner1.setLastName("Fdez");
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
         owner2.setId(2L);
         owner2.setFirstname("Marina");
-        owner2.setFirstname("Vives");
+        owner2.setLastName("Vives");
         ownerService.save(owner2);
 
         System.out.println("Loaded Owners!!!!");
