@@ -19,7 +19,7 @@ public class OwnerController {
         this.ownerService = ownerService;
     }
 
-    @RequestMapping(value = {"", "/", "/ownerList"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"", "/", "/ownerList", "/find"}, method = RequestMethod.GET)
     public String golistOwnersView(Model model) {
 
         model.addAttribute("owners", ownerService.findAll());

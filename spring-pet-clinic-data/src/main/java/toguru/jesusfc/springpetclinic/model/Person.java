@@ -5,15 +5,15 @@ package toguru.jesusfc.springpetclinic.model;
  */
 public class Person extends BaseEntity {
 
-    private String firstname;
+    private String firstName;
     private String lastName;
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {
