@@ -1,7 +1,9 @@
 package toguru.jesusfc.springpetclinic.services.map;
 
 import org.springframework.stereotype.Service;
+import toguru.jesusfc.springpetclinic.model.Specialty;
 import toguru.jesusfc.springpetclinic.model.Vet;
+import toguru.jesusfc.springpetclinic.services.SpecialtyService;
 import toguru.jesusfc.springpetclinic.services.VetService;
 
 import java.util.Set;
@@ -11,6 +13,14 @@ import java.util.Set;
  */
 @Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
+
+    private final SpecialtyService specialtyService;
+
+    public VetServiceMap(SpecialtyService specialtyService) {
+        this.specialtyService = specialtyService;
+    }
+
+
     @Override
     public Set<Vet> findAll() {
         return super.findAll();
@@ -23,6 +33,15 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetS
 
     @Override
     public Vet save(Vet obj) {
+
+        if (obj.getSpecialities().size() > 0){
+            obj.getSpecialities().forEach(specialty -> {
+                if (specialty.getId() == null) {
+                    Specialty specialtySave = specialtyService.save(specialty);
+                    specialty.setId(specialtySave.getId());
+                }
+            });
+        }
         return super.save(obj);
     }
 

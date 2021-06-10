@@ -21,7 +21,6 @@ public class VetController {
 
     @RequestMapping(value = {"", "/", "/vetList", "/find"}, method = RequestMethod.GET)
     public String goListVetsView(Model model) {
-
         model.addAttribute("vets", vetService.findAll());
         return "vets/index";
     }
