@@ -2,7 +2,6 @@ package toguru.jesusfc.springpetclinic.services.map;
 
 import org.springframework.stereotype.Service;
 import toguru.jesusfc.springpetclinic.model.Vet;
-import toguru.jesusfc.springpetclinic.services.CrudService;
 import toguru.jesusfc.springpetclinic.services.VetService;
 
 import java.util.Set;
