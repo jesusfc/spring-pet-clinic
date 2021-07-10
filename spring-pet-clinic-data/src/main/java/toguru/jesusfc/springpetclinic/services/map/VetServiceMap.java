@@ -1,7 +1,8 @@
 package toguru.jesusfc.springpetclinic.services.map;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
-import toguru.jesusfc.springpetclinic.model.Specialty;
+import toguru.jesusfc.springpetclinic.model.Speciality;
 import toguru.jesusfc.springpetclinic.model.Vet;
 import toguru.jesusfc.springpetclinic.services.SpecialtyService;
 import toguru.jesusfc.springpetclinic.services.VetService;
@@ -12,6 +13,7 @@ import java.util.Set;
  * Created By Jesús Fdez. Caraballo on 17/04/2021.
  */
 @Service
+@Profile({"default", "map"})
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
     private final SpecialtyService specialtyService;
@@ -37,8 +39,8 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetS
         if (obj.getSpecialities().size() > 0){
             obj.getSpecialities().forEach(specialty -> {
                 if (specialty.getId() == null) {
-                    Specialty specialtySave = specialtyService.save(specialty);
-                    specialty.setId(specialtySave.getId());
+                    Speciality specialitySave = specialtyService.save(specialty);
+                    specialty.setId(specialitySave.getId());
                 }
             });
         }

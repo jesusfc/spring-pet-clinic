@@ -1,5 +1,6 @@
 package toguru.jesusfc.springpetclinic.services.map;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import toguru.jesusfc.springpetclinic.model.Owner;
 import toguru.jesusfc.springpetclinic.model.Pet;
@@ -13,6 +14,7 @@ import java.util.Set;
  * Created By Jesús Fdez. Caraballo on 17/04/2021.
  */
 @Service
+@Profile({"default", "map"})
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     private final PetTypeService petTypeService;
@@ -35,20 +37,19 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
 
     @Override
     public Owner save(Owner obj) {
-        if (obj != null) {
-            if(obj.getPets() != null) {
-                obj.getPets().forEach(pet -> {
-                    if(pet.getPetType() != null){
-                        if(pet.getPetType().getId() == null){
-                            pet.setPetType(petTypeService.save(pet.getPetType()));
-                        }
+        if (obj != null && obj.getPets() != null) {
+            obj.getPets().forEach(pet -> {
+                if (pet.getPetType() != null) {
+                    if (pet.getPetType().getId() == null) {
+                        pet.setPetType(petTypeService.save(pet.getPetType()));
                     }
-                    if (pet.getId() == null) {
-                        Pet savedPet = petService.save(pet);
-                        pet.setId(savedPet.getId());
-                    }
-                });
-            }
+                }
+                if (pet.getId() == null) {
+                    Pet savedPet = petService.save(pet);
+                    pet.setId(savedPet.getId());
+                }
+            });
+
         }
         return super.save(obj);
     }

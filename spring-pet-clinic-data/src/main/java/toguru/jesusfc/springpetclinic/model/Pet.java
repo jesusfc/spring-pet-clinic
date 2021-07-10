@@ -2,6 +2,8 @@ package toguru.jesusfc.springpetclinic.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created By Jesús Fdez. Caraballo on 12/04/2021.
@@ -17,13 +19,15 @@ public class Pet extends BaseEntity {
     @JoinColumn(name = "type_id")
     private PetType petType;
 
-    @JoinColumn(name = "owner_id")
     @ManyToOne
+    @JoinColumn(name = "owner_id")
     private Owner owner;
 
     @Column(name = "birth_date")
     private LocalDate birthDate;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
+    private Set<Visit> visits = new HashSet<>();
 
     public LocalDate getBirthDate() {
         return birthDate;
