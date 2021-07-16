@@ -11,6 +11,7 @@ import java.util.Set;
  */
 @Data
 @Entity
+@EqualsAndHashCode(exclude = {"pets"})
 @Table(name = "owners")
 public class Owner extends Person {
 
